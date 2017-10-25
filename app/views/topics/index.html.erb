@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="wrapper">
+      <div class="user_menu col-md-3">
+        <h1>ユーザー情報</h1>
+      </div>
+      <div class="topic_area col-md-6">
+        <% @topics.each do |topic| %>
+          <div class="topic_menu">
+            <h4><strong><%= topic.title %></strong></h4>
+            <p class="img-val"><%= profile_img(topic.user) %><%= topic.user.name %></p>
+            <p class="topic-content"><%= topic.content %></p>
+            <p class="img">
+              <%= photo_img(topic) %>
+            </p>
+            <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+            <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+          </div>
+        <% end %>
+      </div>
+      <div class="sign_up_menu col-md-3">
+        <h2>サインアップ情報</h2>
+      </div>
+  </div>
+</div>

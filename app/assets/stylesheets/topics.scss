@@ -1,0 +1,40 @@
+.user_menu {
+  width: 210px;
+  margin: 10px 0 10px 1px;
+  background-color: white;
+}
+
+.topic_area {
+  padding-bottom: 100px;
+}
+
+.topic_menu {
+  margin: 10px 1px;
+  height: auto;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  word-wrap: break-word;
+  padding: 10px;
+}
+
+.sign_up_menu {
+  // width: 295px;
+  margin: 10px 0px 10px 0;
+  background-color: white;
+}
+
+textarea {
+  resize: none;
+  height: 250px;
+}
+
+.img-val > img {
+  max-width: 10%;
+  border-radius: 100px;
+  margin: 5px;
+}
+
+.topic-content {
+  margin-left: 15px;
+}
