@@ -56,7 +56,6 @@ class TopicsController < ApplicationController
   def ajax_action
     if params[:ajax_handler] == 'content_more'
       respond_to do |format|
-        binding.pry
         @topic = Topic.find(params[:id])
         if @topic.update(read: false)
           format.html { redirect_to topics_path }
