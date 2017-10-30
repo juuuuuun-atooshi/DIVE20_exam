@@ -1,12 +1,20 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_topic, only:[:edit, :update, :destroy]
+  before_action :set_topic, only:[:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all
+    Topic.set_read
+    @users = User.all
+    @user = current_user
+    @followeds = @user.followed_users
+    @followers = @user.followers
+    ajax_action unless params[:ajax_handler].blank?
   end
 
   def show
+    @comment = @topic.comments.build
+    @comments = @topic.comments
   end
 
   def new
@@ -16,6 +24,10 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.create(topic_params)
     @topic.user_id = current_user.id
+
+    if @topic.content.length > 99
+      @topic.update(read: true)
+    end
 
     if @topic.save
       redirect_to topics_path, notice: "投稿しました！"
@@ -39,6 +51,19 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     redirect_to topics_path, notice: "投稿を削除しました！"
+  end
+
+  def ajax_action
+    if params[:ajax_handler] == 'content_more'
+      respond_to do |format|
+        binding.pry
+        @topic = Topic.find(params[:id])
+        if @topic.update(read: false)
+          format.html { redirect_to topics_path }
+          format.js { render :index }
+        end
+      end
+    end
   end
 
   private

@@ -1,5 +1,4 @@
 .user_menu {
-  width: 210px;
   margin: 10px 0 10px 1px;
   background-color: white;
 }
@@ -19,22 +18,57 @@
 }
 
 .sign_up_menu {
-  // width: 295px;
+  width: 360px;
   margin: 10px 0px 10px 0;
   background-color: white;
 }
 
 textarea {
   resize: none;
+}
+
+textarea#topic_content {
   height: 250px;
 }
 
 .img-val > img {
-  max-width: 10%;
+  border-radius: 100px;
+  margin: 5px;
+}
+
+p {
+  .sign-up-img-val > .left > .clearfix {
+    margin-bottom: 0;
+  }
+}
+.sign-up-img-val > img {
   border-radius: 100px;
   margin: 5px;
 }
 
 .topic-content {
   margin-left: 15px;
+}
+
+.topic_write, .comment-deteal {
+  margin-bottom: 100px;
+}
+
+.left {
+  text-align: left;
+  margin-left: auto;
+  float: left;
+}
+
+.clearfix:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.message-btn {
+  margin-right: 55px;
+}
+.follow-btn {
+  margin-top: 15px
 }

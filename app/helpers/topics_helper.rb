@@ -17,4 +17,5 @@ module TopicsHelper
       return;
     end
   end
+
 end

@@ -10,26 +10,28 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <%= t.label :タイトル %>
-  <%= t.text_field :title, class: 'form-control' %>
-  <br>
-  <%= t.label :内容 %>
-  <%= t.text_area :content, class: 'form-control' %>
-  <br>
-
-  <%= t.label :アップロードファイル  %><br/>
-  <% if @topic.image? %>
-    <%= image_tag @topic.image.url %>
-    <br/><br/><%= t.file_field :image %>
-  <% else %>
-    <%= t.file_field :image %>
-    <%= t.hidden_field :image_cache %>
-    <% end %>
-
-  <br>
-  <%= t.submit '投稿', class: 'btn btn-primary btn-block' %>
-
 <% end %>
-<%= link_to "投稿一覧に戻る", topics_path %>
+
+<div class="topic_write">
+    <%= t.label :タイトル %>
+    <%= t.text_field :title, class: 'form-control' %>
+    <br>
+    <%= t.label :内容 %>
+    <%= t.text_area :content, class: 'form-control' %>
+    <br>
+
+    <%= t.label :アップロードファイル  %><br/>
+    <% if @topic.image? %>
+      <%= image_tag @topic.image.url %>
+      <br/><br/><%= t.file_field :image %>
+    <% else %>
+      <%= t.file_field :image %>
+      <%= t.hidden_field :image_cache %>
+      <% end %>
+
+    <br>
+    <%= t.submit '投稿', class: 'btn btn-primary btn-block' %>
+
+  <% end %>
+  <%= link_to "投稿一覧に戻る", topics_path %>
+</div>
