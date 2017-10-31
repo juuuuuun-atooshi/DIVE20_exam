@@ -32,6 +32,7 @@ textarea#topic_content {
 }
 
 .img-val > img {
+  max-width: 10%;
   border-radius: 100px;
   margin: 5px;
 }
@@ -42,9 +43,11 @@ p {
   }
 }
 .sign-up-img-val > img {
-  max-width: 10%;
+  max-width: 30px;
+  height: auto;
   border-radius: 100px;
-  margin: 5px;
+  display:inline-block;
+  vertical-align: middle;
 }
 
 .topic-content {
@@ -56,9 +59,9 @@ p {
 }
 
 .left {
+  float: left;
   text-align: left;
   margin-left: auto;
-  float: left;
 }
 
 .clearfix:after{
@@ -68,8 +71,16 @@ p {
 }
 
 .message-btn {
-  margin-right: 55px;
+  margin-right: auto;
 }
 .follow-btn {
-  margin-top: 15px
+  margin-bottom: 10px;
+}
+
+.user-info {
+  margin-top: 10px;
+}
+
+.deteal-left {
+    text-align: left;
 }

@@ -1,1 +1,1 @@
-$("#content_more").html("<%= j(render 'topics/index', { topic: @topic }) %>")
+$("#content-<%= @topic.id %>").html("<%= j(render 'topics/index', { topic: @topic }) %>")

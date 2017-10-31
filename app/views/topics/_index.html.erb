@@ -1,1 +1,6 @@
-<%= topic.content %>
+<% if topic.content.length > 99 && topic.read%>
+  <%= topic.content.truncate(100) %>
+  <%= link_to "もっとみる", topics_path(ajax_handler: "content_more", id: topic.id), remote: true, id: "content_more" %>
+<% else %>
+  <%= topic.content %>
+<% end %>

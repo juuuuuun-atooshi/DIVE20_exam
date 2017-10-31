@@ -12,10 +12,10 @@
               <h4><strong><%= topic.title %></strong></h4>
             <% end %>
             <p class="img-val"><%= profile_img(topic.user) %><%= topic.user.name %></p>
-            <p class="topic-content">
+            <p class="topic-content" id="content-<%=topic.id %>">
               <% if topic.content.length > 99 && topic.read?%>
                 <%= topic.content.truncate(100) %>
-                <%= link_to "もっとみる", topics_path(ajax_handler: "content_more", id: topic.id), remote: true, id: "content_more" %>
+                <%= link_to "もっとみる", topics_path(ajax_handler: "content_more", id: topic.id), remote: true %>
               <% else %>
                 <%= topic.content %>
               <% end %>
@@ -31,13 +31,15 @@
       <div class="sign_up_menu col-md-3">
         <% @users.each do |user| %>
           <% if user.id != current_user.id %>
-            <p class="sign-up-img-val left clearfix">
-              <%= profile_img(user) %>
-                <%= user.name %>
-                <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'message-btn btn btn-default btn-sm btn btn-success'%>
-            </p>
-            <div class="right follow-btn">
-              <%= render partial: 'users/follow_form', locals: { user: user }   %>
+            <div class="user-info">
+              <p class="sign-up-img-val left clearfix">
+                <%= profile_img(user) %>
+                  <%= user.name %>
+                  <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'message-btn btn btn-default btn-sm btn btn-success'%>
+              </p>
+              <div class="right follow-btn">
+                <%= render partial: 'users/follow_form', locals: { user: user }   %>
+              </div>
             </div>
           <% end %>
         <% end %>
