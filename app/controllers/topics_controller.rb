@@ -38,6 +38,9 @@ class TopicsController < ApplicationController
   end
 
   def edit
+    if @topic.id != current_user.id
+      redirect_to topics_path, notice: "投稿者でないため編集できませんでした..."
+    end
   end
 
   def update

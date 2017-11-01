@@ -2,10 +2,12 @@
 
 <div class="container">
   <div class="wrapper">
-      <div class="user_menu col-md-2">
-        <h1>ユーザー情報</h1>
-      </div>
-      <div class="topic_area col-md-6">
+      <%= link_to user_path(@user.id) do %>
+        <div class="user_menu col-md-2">
+            <div class="img-val"><%= profile_img(@user) %><%= @user.name %></div>
+        </div>
+      <% end %>
+      <div class="topic_area col-md-6 col-sm-6">
         <% @topics.each do |topic| %>
           <div class="topic_menu">
             <%= link_to topic_path(topic) do %>
@@ -23,18 +25,20 @@
             <p class="img">
               <%= photo_img(topic) %>
             </p>
-            <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
-            <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+            <% if topic.id == current_user.id %>
+              <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+              <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+            <% end %>
           </div>
         <% end %>
       </div>
-      <div class="sign_up_menu col-md-3">
+      <div class="sign_up_menu col-md-3 col-sm-6">
         <% @users.each do |user| %>
           <% if user.id != current_user.id %>
             <div class="user-info">
               <p class="sign-up-img-val left clearfix">
                 <%= profile_img(user) %>
-                  <%= user.name %>
+                  <%= user.name.truncate(10) %>
                   <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'message-btn btn btn-default btn-sm btn btn-success'%>
               </p>
               <div class="right follow-btn">
