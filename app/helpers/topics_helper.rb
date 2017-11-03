@@ -2,6 +2,7 @@ module TopicsHelper
   def photo_img(topic)
     if topic.image?
 
+binding.pry
       image = MiniMagick::Image.open(topic.image.file.file)
 
       wdth = image[:width]
