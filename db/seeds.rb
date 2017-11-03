@@ -8,6 +8,7 @@ cnt = 0
               password_confirmation: password,
               name: "test" + cnt.to_s,
               uid: uid
+              confirmed_at: Time.now
               )
   cnt += 1
 end
