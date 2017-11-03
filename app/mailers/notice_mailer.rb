@@ -9,7 +9,7 @@ class NoticeMailer < ApplicationMailer
     @greeting = "Hi"
     @topic = topic
 
-    mail to: @topic.user.email,
+    mail to: "mailertest@gmail.com",
          subject: '【なんちゃってFacebook】新規記事が投稿されました'
   end
 end
