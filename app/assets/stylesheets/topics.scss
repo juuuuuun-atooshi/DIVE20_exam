@@ -53,7 +53,8 @@ p {
 }
 
 .img > img {
-  width: 500px;
+  // width: 500px;
+  width: auto;
   // max-width: auto;
   max-width: 100%;
 }
@@ -100,4 +101,12 @@ p {
 
 .deteal-left {
     text-align: left;
+}
+
+.deteal-image {
+  text-align: center;
+  img {
+    width: 300px;
+    max-width: 100%
+  }
 }
