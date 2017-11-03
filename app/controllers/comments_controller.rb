@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
     @topic = @comment.topic
-binding.pry
+
     respond_to do |format|
       if @comment.save
         format.html { redirect_to topic_path(@topic), notice: 'コメントを投稿しました。' }
