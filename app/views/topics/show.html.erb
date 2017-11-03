@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-<div class="child row">
+
+<div class="child">
   <div class="wrapper col-md-6 col-md-offset-3 col-sm-offset-1">
     <div class="comment-deteal">
       <div class="topic-text">
@@ -14,7 +15,7 @@
         <p class="deteal-image"><%= photo_img(@topic) %></p>
       </div>
       <p>コメント一覧</p>
-      <div id="comments_area">
+      <div class="row" id="comments_area">
         <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
       </div>
       <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>

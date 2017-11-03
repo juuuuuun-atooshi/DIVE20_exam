@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only:[:edit, :update, :destroy]
-  
+
   def create
     @comment = current_user.comments.build(comment_params)
     @topic = @comment.topic
-
+binding.pry
     respond_to do |format|
       if @comment.save
         format.html { redirect_to topic_path(@topic), notice: 'コメントを投稿しました。' }
         format.js { render :index }
       else
-        format.html { render :new }
+        format.html { render :edit }
       end
     end
   end

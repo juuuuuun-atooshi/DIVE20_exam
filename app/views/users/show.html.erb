@@ -5,7 +5,7 @@
       <h2>フォロー一覧</h2>
       <% @followeds.each do |followed| %>
         <% if followed.id != current_user.id %>
-          <div class="row">
+          <div class="follow_area row">
             <div class="container-child col-md-2 col-sm-4 col-xs-6">
               <div class="follow">
                 <div class="left">
@@ -24,7 +24,7 @@
       <h2>フォロワー一覧</h2>
       <% @followers.each do |follower| %>
         <% if follower.id != current_user.id %>
-          <div class="row">
+          <div class="follow_area row">
             <div class="container-child col-md-2 col-sm-4 col-xs-6">
               <div class="follow">
                 <div class="left">
