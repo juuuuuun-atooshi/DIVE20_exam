@@ -13,31 +13,31 @@ cnt = 0
   cnt += 1
 end
 
-n = 1
+n = 208
 
-while n <= 100
-  if n < 10
+while n <= 308
+  if n < 218
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/404.png"),
       user_id: n,
     )
-  elsif n < 20
+  elsif n < 228
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/girls.png"),
       user_id: n,
     )
-  elsif n < 30
+  elsif n < 238
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/thumb_key.png"),
       user_id: n,
     )
-  elsif n < 40
+  elsif n < 248
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

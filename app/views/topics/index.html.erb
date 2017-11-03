@@ -8,45 +8,56 @@
         </div>
       <% end %>
       <div class="topic_area col-md-6 col-sm-6">
-        <% @topics.each do |topic| %>
-          <div class="topic_menu">
-            <%= link_to topic_path(topic) do %>
-              <h4><strong><%= topic.title %></strong></h4>
-            <% end %>
-            <p class="img-val"><%= profile_img(topic.user) %><%= topic.user.name %></p>
-            <p class="topic-content" id="content-<%=topic.id %>">
-              <% if topic.content.length > 99 && topic.read?%>
-                <%= topic.content.truncate(100) %>
-                <%= link_to "もっとみる", topics_path(ajax_handler: "content_more", id: topic.id), remote: true %>
-              <% else %>
-                <%= topic.content %>
+        <% if @topics.count != 0 %>
+          <% @topics.each do |topic| %>
+            <div class="topic_menu">
+              <%= link_to topic_path(topic) do %>
+                <h4><strong><%= topic.title %></strong></h4>
               <% end %>
-            </p>
-            <p class="img">
-              <%= photo_img(topic) %>
-            </p>
-            <% if topic.user.id == current_user.id %>
-              <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
-              <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
-            <% end %>
+              <p class="img-val"><%= profile_img(topic.user) %><%= topic.user.name %></p>
+              <p class="topic-content" id="content-<%=topic.id %>">
+                <% if topic.content.length > 99 && topic.read?%>
+                  <%= topic.content.truncate(100) %>
+                  <%= link_to "もっとみる", topics_path(ajax_handler: "content_more", id: topic.id), remote: true %>
+                <% else %>
+                  <%= topic.content %>
+                <% end %>
+              </p>
+              <p class="img">
+                <%= photo_img(topic) %>
+              </p>
+              <% if topic.user.id == current_user.id %>
+                <%= link_to "編集", edit_topic_path(topic.id), class: 'btn btn-default btn-sm btn-success' %>
+                <%= link_to "削除", topic_path(topic.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="topic_menu">
+              <h2>まずは投稿しましょう！</h2><br/>
+              <div class="first_topic_menu">
+                <%= link_to "投稿", new_topic_path, class: 'btn btn-default btn-lg btn-info btn-extra' %>
+              </div>
           </div>
         <% end %>
       </div>
-      <div class="sign_up_menu col-md-3 col-sm-6">
-        <% @users.each do |user| %>
-          <% if user.id != current_user.id %>
-            <div class="user-info">
-              <p class="sign-up-img-val left clearfix">
-                <%= profile_img(user) %>
-                  <%= user.name.truncate(10) %>
-                  <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'message-btn btn btn-default btn-sm btn btn-success'%>
-              </p>
-              <div class="right follow-btn">
-                <%= render partial: 'users/follow_form', locals: { user: user }   %>
+      <% if @users.count > 1 %>
+        <div class="sign_up_menu col-md-3 col-sm-6">
+          <% @users.each do |user| %>
+            <% if user.id != current_user.id %>
+              <div class="user-info">
+                <p class="sign-up-img-val left clearfix">
+                  <%= profile_img(user) %>
+                    <%= user.name.truncate(10) %>
+                    <%= link_to 'メッセージ', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: 'message-btn btn btn-default btn-sm btn btn-success'%>
+                </p>
+                <div class="right follow-btn">
+                  <%= render partial: 'users/follow_form', locals: { user: user }   %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
   </div>
 </div>
