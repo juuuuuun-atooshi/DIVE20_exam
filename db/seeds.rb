@@ -21,21 +21,21 @@ while n <= 100
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/404.png"),
-      user_id: n,
+      user_id: 1,
     )
   elsif n < 20
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/girls.png"),
-      user_id: n,
+      user_id: 2,
     )
   elsif n < 30
     Topic.create(
       title: "あああ",
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/thumb_key.png"),
-      user_id: n,
+      user_id: 3,
     )
   elsif n < 40
     Topic.create(
@@ -44,7 +44,7 @@ while n <= 100
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       image: File.open("./app/assets/images/header.jpg"),
-      user_id: n,
+      user_id: 4,
     )
   else
     Topic.create(
@@ -52,7 +52,7 @@ while n <= 100
       content: "hogeaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      user_id: n,
+      user_id: 5,
     )
   end
 
