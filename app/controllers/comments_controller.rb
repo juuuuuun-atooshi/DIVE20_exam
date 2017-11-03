@@ -7,10 +7,15 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to topic_path(@topic), notice: 'コメントを投稿しました。' }
+        format.html { redirect_to topic_path(@topic) }
+        flash[:notice] = "コメントを投稿しました。"
         format.js { render :index }
       else
-        format.html { render :edit }
+        @comment.errors.each do |name, msg|
+          flash.now[name] = msg
+        end
+        format.html { redirect_to topic_path(@comment) }
+        format.js { render partial: "comments/message", status: :unprocessable_entity }
       end
     end
   end
